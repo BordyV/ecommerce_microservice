@@ -12,6 +12,10 @@ public class CartItem {
     private Long productId;
     private Integer quantity;
 
+    public CartItem() {
+
+    }
+
     public CartItem(Long id, Long productId, Integer quantity) {
         this.id = id;
         this.productId = productId;
