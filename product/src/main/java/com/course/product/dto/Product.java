@@ -1,16 +1,18 @@
-package com.course.product;
+package com.course.product.dto;
 
-import org.hibernate.annotations.Entity;
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
     private String description;
     private String illustration;
