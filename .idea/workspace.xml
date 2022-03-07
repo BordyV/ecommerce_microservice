@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1e4f433-44a7-4fc2-a875-61674cb85db8" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product/src/main/java/com/course/product/ProductRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product/src/main/java/com/course/product/controller/ProductController.java" afterDir="false" />
@@ -15,6 +16,11 @@
       <change beforePath="$PROJECT_DIR$/product/src/main/java/com/course/product/MicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/course/product/ProductApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/main/java/com/course/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/main/java/com/course/product/dto/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/src/test/java/com/course/product/MicroserviceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/src/test/java/com/course/product/ProductApplicationTests.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,10 +98,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/product/build.gradle" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+>>>>>>> Stashed changes
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RunManager" selected="Spring Boot.MicroserviceApplication">
@@ -141,9 +155,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646130150759</updated>
+<<<<<<< Updated upstream
       <workItem from="1646130151892" duration="2266000" />
       <workItem from="1646640819810" duration="3028000" />
       <workItem from="1646643897640" duration="116000" />
+=======
+      <workItem from="1646130151892" duration="130000" />
+      <workItem from="1646130496847" duration="1951000" />
+      <workItem from="1646642823052" duration="1294000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
