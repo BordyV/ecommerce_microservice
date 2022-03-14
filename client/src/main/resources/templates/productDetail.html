@@ -17,9 +17,10 @@
         <card-body>
             <img th:src="${product.illustration}" class="card-img-top" />
             <p th:text="${product.description}" class="d-flex">description</p>
-            <strong th:text="${product.price}">title</strong>
+            <strong th:text="${product.price}"> </strong>  <strong>€</strong>
         </card-body>
     </card>
+    <br>
     <input id="cartBtn" type="button" value="Ajouter au panier" th:onclick="|addToCart('${product.id}')|"/>
 </div>
 </body>

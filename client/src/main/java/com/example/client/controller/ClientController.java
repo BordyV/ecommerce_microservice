@@ -24,7 +24,7 @@ public class ClientController {
         return "index";
     }
 
-    @GetMapping(value = "/product/{id}")
+    @GetMapping(value = "/product-detail/{id}")
     public String productDetail(Model model, @PathVariable Long id) {
         Optional<ProductBean> product = msProductProxy.get(id);
         model.addAttribute("product", product.get());
