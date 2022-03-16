@@ -5,6 +5,7 @@ import com.example.cart.dto.Cart;
 import com.example.cart.dto.CartItem;
 import com.example.cart.repository.CartItemRepository;
 import com.example.cart.repository.CartRepository;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +48,19 @@ public class CartController {
         Cart cart = cartRepository.getOne(id);
         if (cart == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Couldn't get cart");
-        cart.addProduct(cartItem);
+
+        Boolean productAlreadyExist = false;
+        for (CartItem cItem: cart.getProducts()) {
+            if(cItem.getProductId().equals(cartItem.getProductId())) {
+                cItem.setQuantity(cItem.getQuantity()+cartItem.getQuantity());
+                productAlreadyExist = true;
+            }
+        }
+
+        //si le produit n'existe pas on l'ajoute
+        if (!productAlreadyExist)
+            cart.addProduct(cartItem);
+
         cart = cartRepository.save(cart);
         return new ResponseEntity<Cart>(cart, HttpStatus.CREATED);
     }
