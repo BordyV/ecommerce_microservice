@@ -6,6 +6,25 @@
     <title>Product detail</title>
 </head>
 <body>
+<script th:inline="javascript">
+    function addProductToCart(productId) {
+        //TODO set cartId sur le retour de l'appel HTTP
+        let cartId = sessionStorage.getItem('cartId');
+        let url = 'http://localhost:8090/';
+        let options =  { method: "post" };
+        console.log(sessionStorage, productId)
+        fetch(url + `cart/${cartId}/product/${productId}`, options)
+            .then((response) => {
+            response.json().then((data) => {
+                console.log(data)
+                sessionStorage.setItem('cartId', data.id);
+                });
+            }).catch((err) => {
+                console.error(err);
+                alert("Une erreur est survenue lors de l'ajout du produit au panier");
+            });
+    }
+</script>
 <div class="container">
     <h1>Description du produit</h1>
 
@@ -21,7 +40,7 @@
         </card-body>
     </card>
     <br>
-    <input id="cartBtn" type="button" value="Ajouter au panier" th:onclick="|addToCart('${product.id}')|"/>
+    <input type="button" value="Ajouter au panier" th:onclick="|javascript:addProductToCart('${product.id}')|"/>
 </div>
 </body>
 </html>

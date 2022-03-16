@@ -11,6 +11,10 @@ public class CartBean {
         this.products = products;
     }
 
+    public CartBean(List<com.example.client.bean.CartItemBean> products) {
+        this.products = products;
+    }
+
     public Long getId() {
         return id;
     }

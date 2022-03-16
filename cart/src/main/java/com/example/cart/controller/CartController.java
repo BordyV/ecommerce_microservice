@@ -25,7 +25,7 @@ public class CartController {
     @PostMapping(value = "/cart")
     public ResponseEntity<Cart> createNewCart(@RequestBody Cart cartData)
     {
-        Cart cart = cartRepository.save(new Cart());
+        Cart cart = cartRepository.save(cartData);
         if (cart == null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Couldn't create a new cart");
         return new ResponseEntity<Cart>(cart, HttpStatus.CREATED);
@@ -42,14 +42,14 @@ public class CartController {
 
     @PostMapping(value = "/cart/{id}")
     @Transactional
-    public ResponseEntity<CartItem> addProductToCart(@PathVariable Long id, @RequestBody CartItem cartItem)
+    public ResponseEntity<Cart> addProductToCart(@PathVariable Long id, @RequestBody CartItem cartItem)
     {
         Cart cart = cartRepository.getOne(id);
         if (cart == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Couldn't get cart");
         cart.addProduct(cartItem);
-        cartRepository.save(cart);
-        return new ResponseEntity<CartItem>(cartItem, HttpStatus.CREATED);
+        cart = cartRepository.save(cart);
+        return new ResponseEntity<Cart>(cart, HttpStatus.CREATED);
     }
 
 }
