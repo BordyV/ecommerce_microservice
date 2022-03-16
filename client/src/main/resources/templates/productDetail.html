@@ -21,7 +21,7 @@
         </card-body>
     </card>
     <br>
-    <input id="cartBtn" type="button" value="Ajouter au panier" th:onclick="|addToCart('${product.id}')|"/>
+    <input type="button" value="Ajouter au panier" th:onclick="|addProductToCart('${product.id}')|"/>
 </div>
 </body>
 </html>

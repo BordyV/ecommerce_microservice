@@ -14,8 +14,7 @@ public class Order {
 
     public Order(){}
 
-    public Order(Long id, Long cartId){
-        this.id = id;
+    public Order(Long cartId){
         this.cartId = cartId;
     }
 
