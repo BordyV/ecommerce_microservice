@@ -10,10 +10,9 @@
     function addProductToCart(productId) {
         //TODO set cartId sur le retour de l'appel HTTP
         let cartId = sessionStorage.getItem('cartId');
-        let url = 'http://localhost:8090/';
         let options =  { method: "post" };
         console.log(sessionStorage, productId)
-        fetch(url + `cart/${cartId}/product/${productId}`, options)
+        fetch(`/cart/${cartId}/product/${productId}`, options)
             .then((response) => {
             response.json().then((data) => {
                 console.log(data)
