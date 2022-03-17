@@ -3,8 +3,10 @@ package com.example.order.dto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="OrderTable")
 public class Order {
     @Id
     @GeneratedValue
@@ -18,6 +20,10 @@ public class Order {
         this.cartId = cartId;
     }
 
+    public Order(Long id, Long cartId){
+        this.id = id;
+        this.cartId = cartId;
+    }
 
     public Long getId() {
         return id;

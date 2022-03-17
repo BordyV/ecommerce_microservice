@@ -25,7 +25,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/order/{id}")
-    public Optional<Order> getCart(@PathVariable Long id) {
+    public Optional<Order> getOrder(@PathVariable Long id) {
         Optional<Order> order = orderRepository.findById(id);
         if (!order.isPresent())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -33,10 +33,10 @@ public class OrderController {
         return order;
     }
 
-    @CrossOrigin
     @PostMapping(value = "/order")
-    public ResponseEntity<Order> createNewCart(@RequestBody Order param) {
-        Order order = orderRepository.save(param);
+    public ResponseEntity<Order> createNewOrder(@RequestBody Order orderData) {
+        Order newOrder = new Order(orderData.getCartId());
+        Order order = orderRepository.save(newOrder);
 
         if(order.getId() == null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cannot create order");
