@@ -24,8 +24,18 @@
             });
     }
 </script>
+<style>
+    input[type=button] {
+        cursor: pointer;
+    }
+    #retour {
+        border: transparent 0px;
+        color:#3965ff;
+    }
+</style>
 <div class="container">
     <h1>Description du produit</h1>
+    <input type = "button" value = "<- Retour à la lise" id="retour"  onclick = "history.back()">
 
     <card>
         <card-header>
