@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class CartController {
+public class CartClientController {
 
     @Autowired
     private MsCartProxy msCartProxy;
