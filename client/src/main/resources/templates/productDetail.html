@@ -17,6 +17,7 @@
             response.json().then((data) => {
                 console.log(data)
                 sessionStorage.setItem('cartId', data.id);
+                alert("l'article vient d'être ajouté correctement !");
                 });
             }).catch((err) => {
                 console.error(err);
@@ -35,7 +36,7 @@
 </style>
 <div class="container">
     <h1>Description du produit</h1>
-    <input type = "button" value = "<- Retour à la lise" id="retour"  onclick = "history.back()">
+    <input type = "button" value = "<- Retour à la lise" id="retour"  onclick = "window.location.replace('/')">
 
     <card>
         <card-header>

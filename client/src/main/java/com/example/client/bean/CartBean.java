@@ -6,6 +6,9 @@ public class CartBean {
     private Long id;
     private List<CartItemBean> products;
 
+    public CartBean() {
+
+    }
     public CartBean(Long id, List<com.example.client.bean.CartItemBean> products) {
         this.id = id;
         this.products = products;

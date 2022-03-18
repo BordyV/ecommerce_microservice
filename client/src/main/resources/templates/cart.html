@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <style>
+        input[type=button] {
+            cursor: pointer;
+        }
+        #retour {
+            border: transparent 0px;
+            color:#3965ff;
+        }
 
-</body>
+        .product {
+            border: solid black 1px;
+        }
+    </style>
+        <div  class="container">
+            <h1>Panier  <span  th:if="${cart.id}" th:text="${'numéro: ' + cart.id}" ></span></h1>
+            <input type = "button" value = "<- Retour à la lise" id="retour"  onclick = "window.location.replace('/')">
+
+        <!-- IF CART EXIST -->
+            <div th:if="${cart.id}">
+                <div class="row">
+                    <div th:each="product : ${cartProducts}" class="col-md-4 my-1">
+                        <a th:href="@{|/product-detail/${product.id}|}" >
+                            <img th:src="${product.illustration}" style="height: 250px; width: auto;" class="card-img-top" />
+                        </a>
+                        <p><span th:text= "${'Nom: ' + product.name}"></span><span th:text= "${' Prix unitaire: ' + product.price}"></span></p>
+                        <p th:text= "${'Quantité: ' + cart.products[productStat.index].quantity}"></p>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <p th:text= "${'Prix total : '+ totalPrice}"></p>
+                    <input type="button" value="Commander">
+                </div>
+            </div>
+
+            <!-- ELSE CART NOT EXIST -->
+            <div th:unless="${cart.id}">
+                <div>Vous n'avez pas d'article !!!
+                <a href="/">allez donc dépenser vos économies</a></div>
+            </div>
+
+        </div>
+    </body>
 </html>
