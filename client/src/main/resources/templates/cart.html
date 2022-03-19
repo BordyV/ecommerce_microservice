@@ -45,13 +45,13 @@
                         <a th:href="@{|/product-detail/${product.id}|}" >
                             <img th:src="${product.illustration}" style="height: 250px; width: auto;" class="card-img-top" />
                         </a>
-                        <p><span th:text= "${'Nom: ' + product.name}"></span><span th:text= "${' Prix unitaire: ' + product.price}"></span></p>
+                        <p><span th:text= "${'Nom: ' + product.name}"></span><span th:text= "${' Prix unitaire: ' + product.price+ '€'}"></span></p>
                         <p th:text= "${'Quantité: ' + cart.products[productStat.index].quantity}"></p>
                     </div>
                 </div>
                 <div>
                     <br>
-                    <p th:text= "${'Prix total : '+ totalPrice}"></p>
+                    <p th:text= "${'Prix total : '+ totalPrice+ '€'}"></p>
                     <input type="button" value="Commander" th:onclick="|javascript:addOrder('${cart.id}','${totalPrice}' )|">
                 </div>
             </div>

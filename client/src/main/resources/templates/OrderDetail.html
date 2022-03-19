@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Detail</title>
+</head>
+<body>
+<div class="container">
+    <style>
+        input[type=button] {
+            cursor: pointer;
+        }
+        #retour {
+            border: transparent 0px;
+            color:#3965ff;
+        }
+
+        .product {
+            border: solid black 1px;
+        }
+    </style>
+    <div  class="container">
+        <h1>Commande  <span  th:if="${order.id}" th:text="${'numéro: ' + order.id}" ></span></h1>
+        <input type = "button" value = "<- Retour à la lise" id="retour"  onclick = "window.location.replace('/')">
+
+        <!-- IF ORDER EXIST -->
+        <div th:if="${order.id}">
+            <div class="row">
+                <div th:each="product : ${orderProducts}" class="col-md-4 my-1">
+                    <a th:href="@{|/product-detail/${product.id}|}" >
+                        <img th:src="${product.illustration}" style="height: 250px; width: auto;" class="card-img-top" />
+                    </a>
+                    <p th:text= "${'Quantité: ' + order.products[productStat.index].quantity}"></p>
+                </div>
+            </div>
+            <div>
+                <br>
+                <p th:text= "${'Prix total : '+ order.totalPrice} + '€'"></p>
+            </div>
+        </div>
+
+        <!-- ELSE ORDER NOT EXIST -->
+        <div th:unless="${order.id}">
+            <div>Cette commande n'existe pas !!! Mangez-vous des scooby-snacks ?
+                <a href="/">allez donc dépenser vos économies</a></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
