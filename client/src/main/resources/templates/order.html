@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Order</title>
+    <link th:rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div class="container">
@@ -12,6 +14,7 @@
         <div th:each="order : ${orders}" class="col-md-4 my-1">
             <span th:text="${'Commande n°: ' + order.id}"></span>
             <span th:text="${'Prix total: ' + order.totalPrice + '€'}"></span>
+            <br>
             <a th:href="@{|/order/${order.id}}" >
                 Détail de la commande
             </a>
