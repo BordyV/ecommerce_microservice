@@ -42,6 +42,17 @@ public class CartController {
         return cart;
     }
 
+    @DeleteMapping(value = "/cart/{id}")
+    public boolean deleteCart(@PathVariable Long id)
+    {
+        try{
+            cartRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return  false;
+        }
+    }
+
     @PostMapping(value = "/cart/{id}")
     @Transactional
     public ResponseEntity<Cart> addProductToCart(@PathVariable Long id, @RequestBody CartItem cartItem)

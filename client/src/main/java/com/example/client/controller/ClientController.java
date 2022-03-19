@@ -47,7 +47,9 @@ public class ClientController {
         double totalPrice = (double) 0;
 
         if(idCart != null && !idCart.equals("null") && NumberUtils.isNumeric(idCart)) {
+            try {
             cart = msCartProxy.getCart(Long.parseLong(idCart));
+
             if(cart.isPresent()) {
                 for (CartItemBean cartItemBean: cart.get().getProducts()) {
                     Optional<ProductBean> productBean =  msProductProxy.get(cartItemBean.getProductId());
@@ -57,10 +59,19 @@ public class ClientController {
                     }
                 }
             }
+            } catch (Exception e ) {
+                //c'est moche mais pas le temps pour régler l'exception du cartProxy.getCart
+                model.addAttribute("cart", cart.get());
+                model.addAttribute("cartProducts", cartProducts);
+                model.addAttribute("totalPrice", NumberUtils.round(totalPrice,2));
+                return "cart";
+            }
         }
         model.addAttribute("cart", cart.get());
         model.addAttribute("cartProducts", cartProducts);
         model.addAttribute("totalPrice", NumberUtils.round(totalPrice,2));
         return "cart";
     }
+
+
 }

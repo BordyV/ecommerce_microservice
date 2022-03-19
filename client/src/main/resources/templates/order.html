@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<div class="container">
+    <h1>Les commandes : </h1>
+
+    <div class="row">
+        <div th:each="order : ${orders}" class="col-md-4 my-1">
+            <span th:text="${'Commande n°: ' + order.id}"></span>
+            <span th:text="${'Prix total: ' + order.totalPrice}"></span>
+            <a th:href="@{|/order/${order.id}}" >
+                Détail de la commande
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

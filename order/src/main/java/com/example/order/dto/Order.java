@@ -1,9 +1,7 @@
 package com.example.order.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="OrderTable")
@@ -12,17 +10,23 @@ public class Order {
     @GeneratedValue
     private Long id;
     private Long cartId;
-
+    private double totalPrice;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderItem> products;
 
     public Order(){}
 
-    public Order(Long cartId){
+    public Order(Long cartId, double totalPrice, List<OrderItem> products) {
         this.cartId = cartId;
+        this.totalPrice = totalPrice;
+        this.products = products;
     }
 
-    public Order(Long id, Long cartId){
+    public Order(Long id, Long cartId, double totalPrice,  List<OrderItem> products){
         this.id = id;
         this.cartId = cartId;
+        this.totalPrice = totalPrice;
+        this.products = products;
     }
 
     public Long getId() {
@@ -39,5 +43,21 @@ public class Order {
 
     public void setCartId(Long cartId) {
         this.cartId = cartId;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public List<OrderItem> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<OrderItem> products) {
+        this.products = products;
     }
 }

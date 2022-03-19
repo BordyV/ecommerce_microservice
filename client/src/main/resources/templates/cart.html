@@ -2,9 +2,25 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Cart</title>
     </head>
     <body>
+    <script th:inline="javascript">
+        function addOrder(cartId, totalPrice) {
+            let options =  { method: "post" };
+            fetch(`/order/${cartId}/totalPrice/${totalPrice}`, options)
+                .then((response) => {
+                    sessionStorage.setItem('cartId', null);
+                    response.json().then((data) => {
+                        console.log(data)
+                        alert("la commande vient d'être ajoutée correctement !");
+                    });
+                }).catch((err) => {
+                console.error(err);
+                alert("Une erreur est survenue lors de l'ajout de la commande");
+            });
+        }
+    </script>
     <style>
         input[type=button] {
             cursor: pointer;
@@ -36,7 +52,7 @@
                 <div>
                     <br>
                     <p th:text= "${'Prix total : '+ totalPrice}"></p>
-                    <input type="button" value="Commander">
+                    <input type="button" value="Commander" th:onclick="|javascript:addOrder('${cart.id}','${totalPrice}' )|">
                 </div>
             </div>
 
